@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1 Games
+    p Pick a game you would like to play
+    #games
+        a(href="/lobby/1")
+            img(src="../images/1.jpg")
+        a(href="/lobby/2")
+            img(src="../images/2.jpg")
+        a(href="/lobby/3")
+            img(src="../images/3.jpg")

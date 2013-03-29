@@ -1,8 +1,14 @@
+exports.index = function(req, res) {
 
-/*
- * GET home page.
- */
+    res.render('index', { title: 'blue-port.org' });
+};
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+exports.about = function(req, res) {
+
+    res.render('about', { title: 'about' });
+};
+
+exports.lobby = function(req, res) {
+
+     res.render('lobby', { title: 'Lobby' + req.params.id, name: req.params.id } );
 };
