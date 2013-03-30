@@ -1,10 +1,13 @@
 var express = require('express'),
-    //socket  = require('socket.io'),
+    io      = require('socket.io'),
     routes  = require('./routes'),
     http    = require('http'),
-    path    = require('path'),
-    app     = express();
+    path    = require('path');
+    app     = express(),
+    server  = http.createServer(app);
 
+io.listen(server);
+ 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
@@ -16,16 +19,16 @@ app.configure(function(){
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
-
+ 
 app.configure('development', function(){
     app.use(express.errorHandler());
 });
-
+ 
 app.get('/', routes.index);
 app.get('/about', routes.about);
 app.get('/lobby/:id', routes.lobby);
+ 
+server.listen(app.get('port'), function() {
 
-http.createServer(app).listen(app.get('port'), function(){
-    
     console.log("Express server listening on port " + app.get('port'));
 });
