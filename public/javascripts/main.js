@@ -26,6 +26,4 @@ $(document).ready(function() {
    			default_text = $(this).val();
    		}
    	});
-
-   	$('.scroll-pane').jScrollPane();
 });
