@@ -3,9 +3,16 @@
     padding: 0px;
 }
 
+input { border: none; }
+
+:focus {
+    outline-color: transparent;
+    outline-style: none;
+}
+
 html, body {
     background: url(../images/noise100x100.png);
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px Helvetica, Arial, sans-serif;
     color: #FFF;
 }
 
@@ -67,12 +74,11 @@ a { color: #00B7FF; }
 #nav {
     position: absolute;
     padding-bottom: 10px;
-    padding-left: 5px;
     padding-top: 10px;
-    background: #666;
+    background: #444;
     list-style: none;
     overflow: auto;
-    width: 695px;
+    width: 650px;
     left: 0px;
 }
 
@@ -80,16 +86,86 @@ a { color: #00B7FF; }
 
 #filter {
     position: absolute;
+    padding: 10px 14px 0px 14px;
     background: #777;
     height: 100%;
-    width: 198px;
     right: 0px;
 }
+
 #rooms {
     position: absolute;
-    background: #ccc;
-    width: 700px;
-    height: 462px;
+    width: 650px;
+    height: 474px;
     left: 0px;
     top: 38px;
+}
+
+.room {
+    padding: 5px 0px 5px 0px;
+    margin: 0px 0px 2px 0px;
+    background: #777;
+    overflow: auto;
+    width: 650px;
+}
+
+.room li {
+    list-style: none;
+    float: left;
+}
+
+#id {
+    margin-left: 10px;
+    width: 20px;
+}
+
+#name { width: 300px; }
+#host { width: 140px; }
+#type { width: 50px; }
+#free { width: 50px; }
+
+.input_bg {
+    background: url(../images/input01.png) no-repeat;
+    margin: 10px 0px 10px 0px;
+    width: 220px;
+    height: 36px;
+}
+
+.input_bg input {
+    margin: 8px 0px 0px 8px;
+    font-size: 16px;
+    color: #BBB;
+    border: none;
+}
+
+#create_game {
+    background: url(../images/create00.png) no-repeat;
+    margin: 0px 0px 10px 0px;
+    width: 108px;
+    height: 35px;
+    cursor: pointer;
+}
+
+#create_game:hover { background: url(../images/create01.png); }
+#game_type { margin: 10px 0px 10px 0px; }
+#about {
+    height: 500px;
+}
+
+/* SCROLLERS */
+.scroll-me {
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #CCC;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #666;
 }

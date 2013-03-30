@@ -1,5 +1,5 @@
 var express = require('express'),
-    //io      = require('socket.io').listen(8080),
+    io      = require('socket.io').listen(8080),
     routes  = require('./routes'),
     http    = require('http'),
     path    = require('path');

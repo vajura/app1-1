@@ -5,11 +5,22 @@ block content
     p Feel free to play with others
     #lobby
         ul#nav
-            li #
-            li Name
-            li Host
-            li Type
-            li Free
-            li Password
-        #filter
-        #rooms
+            li#id #
+            li#name Name
+            li#host Host
+            li#type Type
+            li#free Free
+            li#password Password
+        #filter 
+            p Search
+            .input_bg
+                input(type="text", name="search", value="Search", id="search_input")
+            p Create new game
+            .input_bg
+                input(type="text", name="search", value="Name", id="name_input")
+            .input_bg
+                input(type="text", name="search", value="Password", id="password_input")
+            p Game type
+            #game_type
+            input(type="button", name="create_game", value="", id="create_game")
+        #rooms.scroll-me

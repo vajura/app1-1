@@ -1,5 +1,31 @@
 $(document).ready(function() {
 
-    var id = Math.floor(Math.random() * 1000);
-    alert(id);
+   	var room = '<ul class="room"><li id="id">#</li><li id="name">Name</li><li id="host">Host</li><li id="type">Type</li><li id="free">Free</li><li id="password">Password</li></ul>'; // Izpis za sobe
+   	var type = '<select><option value="2">2P</option><option value="3">3P</option><option value="4">4P</option></select>'; // Izpis za tip igre
+   	var default_text = '';
+   	
+   	$('#game_type').append(type);
+   	for (var a = 0; a < 30; a++)
+   		$('#rooms').append(room);
+   	
+   	$('#create_game').click(function() {
+
+   		for (var a = 0; a < 10; a++)
+	   		$('#rooms').append(room);
+   	});
+
+   	$('input[type=text]').focus(function() {
+
+   		default_text = $(this).val();
+   		$(this).val('');
+   	}).blur(function() {
+
+   		if ($(this).val().length == 0) {
+
+   			$(this).val(default_text);
+   			default_text = $(this).val();
+   		}
+   	});
+
+   	$('.scroll-pane').jScrollPane();
 });
