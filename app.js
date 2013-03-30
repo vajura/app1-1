@@ -1,10 +1,9 @@
 var express = require('express'),
-    io      = require('socket.io').listen(8080),
+    //socket  = require('socket.io'),
     routes  = require('./routes'),
     http    = require('http'),
-    path    = require('path');
-
-var app = express();
+    path    = require('path'),
+    app     = express();
 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
