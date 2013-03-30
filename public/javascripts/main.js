@@ -1,3 +1,5 @@
+var socket = io.connect();
+
 $(document).ready(function() {
 
    	var room = '<ul class="room"><li id="id">#</li><li id="name">Name</li><li id="host">Host</li><li id="type">Type</li><li id="free">Free</li><li id="password">Password</li></ul>'; // Izpis za sobe
@@ -5,8 +7,6 @@ $(document).ready(function() {
    	var default_text = '';
    	
    	$('#game_type').append(type);
-   	for (var a = 0; a < 30; a++)
-   		$('#rooms').append(room);
    	
    	$('#create_game').click(function() {
 
