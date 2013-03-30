@@ -156,16 +156,16 @@ a { color: #00B7FF; }
     overflow-y: auto;
     overflow-x: hidden; 
 }
-::-webkit-scrollbar {
+.scroll-me::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-::-webkit-scrollbar-track-piece  {
+.scroll-me::-webkit-scrollbar-track-piece  {
     background-color: transparent;    
 }
 
-::-webkit-scrollbar-thumb:vertical {
+.scroll-me::-webkit-scrollbar-thumb:vertical {
     height: 50px;
     background-color: #666;
     border-top-left-radius: 3px;
