@@ -158,14 +158,19 @@ a { color: #00B7FF; }
 }
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
- 
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background: #CCC;
+
+::-webkit-scrollbar-track-piece  {
+    background-color: transparent;    
 }
- 
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #666;
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #666;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 2px;
+    border-left: 2px solid #121212;
 }
