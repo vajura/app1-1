@@ -1,12 +1,12 @@
 var express = require('express'),
-    io      = require('socket.io'),
+    nano    = require('nano')('http://127.0.0.1:5984/'),
+    db      = nano.use('user');
     routes  = require('./routes'),
     http    = require('http'),
     path    = require('path');
     app     = express(),
-    server  = http.createServer(app);
-
-io.listen(server);
+    server  = http.createServer(app),
+    io      = require('socket.io').listen(server);
  
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
@@ -26,9 +26,14 @@ app.configure('development', function(){
  
 app.get('/', routes.index);
 app.get('/about', routes.about);
-app.get('/lobby/:id', routes.lobby);
- 
-server.listen(app.get('port'), function() {
+app.get('/lobby/:id/room?/:host?/:name?/:type?', routes.lobby);
 
-    console.log("Express server listening on port " + app.get('port'));
+server.listen(app.get('port'), function() { console.log("Express server listening on port " + app.get('port')); });
+
+io.sockets.on('connection', function(socket) {
+
+    socket.on('connect', function() {
+
+        console.log('Connected: ' + msg);
+    });
 });

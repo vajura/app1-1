@@ -68,7 +68,7 @@ a { color: #00B7FF; }
     position: relative;
     margin-top: 20px;
     width: 900px;
-    height: 500px;
+    height: 502px;
 }
 
 #nav {
@@ -156,13 +156,36 @@ a { color: #00B7FF; }
     overflow-y: auto;
     overflow-x: hidden; 
 }
+
+.scroll-me {
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
 .scroll-me::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-.scroll-me::-webkit-scrollbar-track-piece  {
-    background-color: transparent;    
+::-webkit-scrollbar-button {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.scroll-me::-webkit-scrollbar-button:decrement:start {
+    background: url(../images/scr_up.png) no-repeat;
+}
+
+.scroll-me::-webkit-scrollbar-button:increment:start {
+    background: url(../images/scr_down.png) no-repeat;
+}
+
+.scroll-me::-webkit-scrollbar-button:decrement:end {
+    background: url(../images/scr_up.png) no-repeat;
+}
+
+.scroll-me::-webkit-scrollbar-button:increment:end {
+    background: url(../images/scr_down.png) no-repeat;
 }
 
 .scroll-me::-webkit-scrollbar-thumb:vertical {

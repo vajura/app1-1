@@ -6,6 +6,9 @@ $(document).ready(function() {
    	var type = '<select><option value="2">2P</option><option value="3">3P</option><option value="4">4P</option></select>'; // Izpis za tip igre
    	var default_text = '';
    	
+   	var url = $(location).attr('href');
+   	var game_id = url.split("/")[4];
+   	
    	$('#game_type').append(type);
    	
    	$('#create_game').click(function() {
