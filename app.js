@@ -26,7 +26,8 @@ app.configure('development', function(){
  
 app.get('/', routes.index);
 app.get('/about', routes.about);
-app.get('/lobby/:id/room?/:host?/:name?/:type?', routes.lobby);
+app.get('/lobby/:id', routes.lobby);
+app.get('/room/:id', routes.room);
 
 server.listen(app.get('port'), function() { console.log("Express server listening on port " + app.get('port')); });
 
