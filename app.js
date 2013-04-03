@@ -42,12 +42,13 @@ app.get('/', function(req, res) {
             title: 'Home',
             games: docs
         });
+        console.log(docs);
     });
 });
 
 // Lobby
 app.get('/lobby/:id', function(req, res) {
- 
+
     db.games.find( { name: req.params.id }, function(err, game) {
         if (err || game == '') {
 
@@ -64,10 +65,8 @@ app.get('/lobby/:id', function(req, res) {
 // Room
 app.get('/room/:id', function(req, res) {
 
-    res.render('room', { 
-        title: 'Room',
-        id: req.params.id
-    });
+    res.render('room', { title: 'Room'});
+    var room_id = req.params.id;
 });
 
 // POST
@@ -91,7 +90,7 @@ app.post('/sign_up', function() {
 app.use(function(req, res, next) {
 
     res.status(404);
-    res.render('404', {
+    res.render('404', { 
         title: '404 File not found',
         message: '404 File not found'
     });
@@ -101,8 +100,9 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
 
     res.status(500);
-    res.render('500', { 
-        title: '500 Internal server error'
+    res.render('500', {
+        title: '500 Internal server error',
+        message: '500 Internal server error'
     });
 });
 
