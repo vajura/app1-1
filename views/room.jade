@@ -2,5 +2,9 @@ extends layout
 
 block content
 	title= title
-	h1 Let the game of #{game} begin
-	#data /#{host}/#{name}/#{type}
+	h1 Let the game begin
+	p Hops, lets play
+	#platform.snops
+		#chat
+			ul#messages
+			input(type='text', name='input_message', value='Message', id='input')

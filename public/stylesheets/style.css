@@ -3,6 +3,7 @@
     padding: 0px;
 }
 
+a { color: #FFF; }
 input { border: none; }
 
 :focus {
@@ -32,8 +33,6 @@ html, body {
     margin-top: 20px;
     width: 900px;
 }
-
-a { color: #00B7FF; }
 
 #account_manager {
     margin-left: auto;
@@ -157,19 +156,9 @@ a { color: #00B7FF; }
     overflow-x: hidden; 
 }
 
-.scroll-me {
-    overflow-y: auto;
-    overflow-x: hidden; 
-}
 .scroll-me::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-}
-
-::-webkit-scrollbar-button {
-  display: block;
-  width: 17px;
-  height: 17px;
 }
 
 .scroll-me::-webkit-scrollbar-button:decrement:start {
@@ -188,12 +177,50 @@ a { color: #00B7FF; }
     background: url(../images/scr_down.png) no-repeat;
 }
 
-.scroll-me::-webkit-scrollbar-thumb:vertical {
+#messages {
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+
+#messages::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb:vertical {
     height: 50px;
     background-color: #666;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 2px;
-    border-left: 2px solid #121212;
+    border-radius: 3px;
+}
+
+#platform {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    width: 900px;
+    height: 600px;
+    border-radius: 3px;
+}
+
+#platform #chat {
+    position: absolute;
+    overflow: auto;
+    bottom: 10px;
+    left: 10px;
+}
+
+#chat { color: #777; }
+#chat #input {
+    width: 860px;
+    padding: 10px;
+    background: rgba(0, 0, 0, .1);
+    color: #777;
+}
+
+#chat #messages {
+    background: rgba(0, 0, 0, .1);
+    margin-bottom: 2px;
+    max-height: 200px;
+    width: 300px;
+    overflow-y: auto;
 }
