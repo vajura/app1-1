@@ -1,7 +1,7 @@
 var express = require('express'),
-    nano    = require('nano')('http://127.0.0.1:5984/'),
-    db      = nano.use('user');
-    routes  = require('./routes'),
+    url     = "mongodb://nodejitsu_zoranf:s622he159nr7g8isgjke2i1ght@ds051947.mongolab.com:51947/nodejitsu_zoranf_nodejitsudb8036041315",
+    coll    = ['users', 'games'],
+    db      = require('mongojs').connect(url, coll)
     http    = require('http'),
     path    = require('path');
     app     = express(),
@@ -20,21 +20,87 @@ app.configure(function(){
     app.use(express.static(path.join(__dirname, 'public')));
 });
  
-app.configure('development', function(){
+app.configure('development', function() {
     app.use(express.errorHandler());
 });
- 
-app.get('/', routes.index);
-app.get('/about', routes.about);
-app.get('/lobby/:id', routes.lobby);
-app.get('/room/:id', routes.room);
+
+app.configure('production', function() {
+    app.use(express.errorHandler());
+});
+
+///////////////////////////
+// routes                //
+///////////////////////////
+
+// GET
+// Index
+app.get('/', function(req, res) {
+
+    db.games.find(function(err, docs) {
+
+        res.render('index', {
+            title: 'Home',
+            games: docs
+        });
+        console.log(docs);
+    });
+});
+
+// Lobby
+app.get('/lobby/:id', function(req, res) {
+
+    res.render('lobby', { title: 'Lobby', name: req.params.id });
+});
+
+// Room
+app.get('/room/:id', function(req, res) {
+
+    res.render('room', { title: 'Room'});
+    var room_id = req.params.id;
+});
+
+// POST
+// Sign in
+app.post('/sign_in', function(req, res) {
+
+    res.redirect();
+});
+
+// Sing up
+app.post('/sign_up', function() {
+
+    res.redirect();
+});
+
+///////////////////////////
+// error                 //
+///////////////////////////
+
+// 404 File not found
+app.use(function(req, res, next) {
+
+    res.status(404);
+    res.render('404', { title: '404 File not found'});
+});
+
+// 500 Internal server error
+app.use(function(err, req, res, next) {
+
+    res.status(500);
+    res.render('500', { title: '500 Internal server error'});
+});
 
 server.listen(app.get('port'), function() { console.log("Express server listening on port " + app.get('port')); });
 
 io.sockets.on('connection', function(socket) {
 
-    socket.on('connect', function() {
+    socket.on('connect', function(msg) {
 
-        console.log('Connected: ' + msg);
+        console.log('Connected: ' + msg.lol);
+    });
+
+    socket.on('disconnect', function(data) {
+
+        console.log('data: ' + socket.id);
     });
 });
